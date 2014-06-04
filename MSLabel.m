@@ -22,6 +22,7 @@ static const int kAlignmentBuffer = 5;
 
 @synthesize lineHeight = _lineHeight;
 @synthesize verticalAlignment = _verticalAlignment;
+@synthesize alignmentBuffer = _alignmentBuffer;
 
 
 #pragma mark - Initilisation
@@ -64,7 +65,7 @@ static const int kAlignmentBuffer = 5;
         numLines = self.numberOfLines;
     }
     
-    int drawY = (self.frame.size.height / 2 - (_lineHeight * numLines) / 2) - kAlignmentBuffer;    
+    int drawY = (self.frame.size.height / 2 - (_lineHeight * numLines) / 2) - _alignmentBuffer;
     
     for (int i = 0; i < numLines; i++) 
     {        
@@ -89,7 +90,7 @@ static const int kAlignmentBuffer = 5;
                 break;
             case MSLabelVerticalAlignmentBottom:
             {
-                drawY = (self.frame.size.height - ((i + 1) * _lineHeight)) - kAlignmentBuffer;
+                drawY = (self.frame.size.height - ((i + 1) * _lineHeight)) - _alignmentBuffer;
             }
                 break;
             default:
@@ -138,6 +139,7 @@ static const int kAlignmentBuffer = 5;
 - (void)setup
 {
     _lineHeight = 10;
+    _alignmentBuffer = kAlignmentBuffer;
     _verticalAlignment = MSLabelVerticalAlignmentMiddle;
 }
 

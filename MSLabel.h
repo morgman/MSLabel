@@ -17,9 +17,11 @@ typedef enum {
 @interface MSLabel : UILabel 
 {
     int _lineHeight;
+    int _alignmentBuffer;
 }
 
 @property (nonatomic, assign) int lineHeight;
+@property (nonatomic, assign) int alignmentBuffer;
 @property (nonatomic, assign) MSLabelVerticalAlignment verticalAlignment;
 
 @end
