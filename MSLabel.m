@@ -106,16 +106,16 @@ static const int kAlignmentBuffer = 5;
         // calculate draw X based on textAlignmentment
         int drawX = 0; 
         
-        if (self.textAlignment == UITextAlignmentCenter) 
+        if (self.textAlignment == NSTextAlignmentCenter)
         {
             drawX = floorf((self.frame.size.width - [line sizeWithFont:self.font].width) / 2);
         } 
-        else if (self.textAlignment == UITextAlignmentRight) 
+        else if (self.textAlignment == NSTextAlignmentRight)
         {
             drawX = (self.frame.size.width - [line sizeWithFont:self.font].width);
         }
         
-        [line drawAtPoint:CGPointMake(drawX, drawY) forWidth:self.frame.size.width withFont:self.font fontSize:self.font.pointSize lineBreakMode:UILineBreakModeClip baselineAdjustment:UIBaselineAdjustmentNone];
+        [line drawAtPoint:CGPointMake(drawX, drawY) forWidth:self.frame.size.width withFont:self.font fontSize:self.font.pointSize lineBreakMode:NSLineBreakByClipping baselineAdjustment:UIBaselineAdjustmentNone];
     }
 }
 
@@ -157,9 +157,9 @@ static const int kAlignmentBuffer = 5;
         {
             NSString *word = [stringsArray objectAtIndex:i];
             
-            NSString *tmpLine = [line stringByAppendingFormat:@"%@ ", word];//[word stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
-            CGFloat lineWidth = [tmpLine sizeWithFont:self.font].width;
-            CGFloat frameWidth = self.frame.size.width;
+//            NSString *tmpLine = [line stringByAppendingFormat:@"%@ ", word];//[word stringByReplacingOccurrencesOfString:@"\n" withString:@""]];
+//            CGFloat lineWidth = [tmpLine sizeWithFont:self.font].width;
+//            CGFloat frameWidth = self.frame.size.width;
             if ([[line stringByAppendingFormat:@"%@ ", word] sizeWithFont:self.font].width <= self.frame.size.width) 
             {
                 line = [line stringByAppendingFormat:@"%@ ", word];
